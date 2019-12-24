@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: radio.api
+---
+testFramework: junit
+sourceLanguage: java
