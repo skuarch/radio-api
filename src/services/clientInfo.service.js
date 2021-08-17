@@ -1,6 +1,5 @@
-const saveClientInfo = (clientInfo) {
+const saveClientInfo = (clientInfo) => {
 
 }
-
 
 export default saveClientInfo;

@@ -1,5 +1,5 @@
 import express from 'express';
-import saveClientInfo from '../services/clientInfo.service';
+import saveClientInfo from '../services/clientInfo.service.js';
 
 
 const clientInfoController = (app) => {

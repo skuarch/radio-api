@@ -3,6 +3,7 @@ import env from './config/environments/index.js';
 import loadControllers from './config/loaders/controller.loader.js';
 import cors from 'cors';
 import helmet from 'helmet';
+import loadDb from './config/loaders/db.loader.js';
 
 
 
@@ -15,9 +16,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 loadControllers(app);
+loadDb();
  
 app.use(helmet());
 
 app.listen(env.port, () => {
-    console.log(`running on port: ${env.port}`)
+    console.log(`Running server on port: ${env.serverPort}`)
 });
