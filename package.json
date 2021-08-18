@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": ". scripts/local.sh && node src/app.js",
+    "start:dev": ". scripts/prod.sh && node src/app.js",
     "sequelize-cli": "sequelize-cli"
   },
   "keywords": [],
