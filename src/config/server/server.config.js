@@ -8,8 +8,10 @@ export const configHelmet = (app) => {
 export const configCors = (app) => {
     const corsOptions = {
         origin: [
-            'http://localhost:8000', 
-            'https://escucharadio.com.mx', 
+            'http://localhost:8000',
+            'http://localhost:3000',
+            'https://escucharadio.com.mx',
+            'http://escucharadio.com.mx',
             'http://bulmaradio.com'
         ],
         optionsSuccessStatus: 200

@@ -15,6 +15,6 @@ export const environments = {
         databasePort: process.env.PGPORT,
         databaseName: process.env.PGDATABASE,
         serverPort: 8000,
-        forceSyncDb: true
+        forceSyncDb: false
     }
 }

@@ -52,8 +52,7 @@ const tableFields = {
         type: DataTypes.STRING
     },
     userAgent: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING        
     }
 
 };

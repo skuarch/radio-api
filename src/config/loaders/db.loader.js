@@ -12,7 +12,7 @@ export const sequelize = new Sequelize(env.databaseName, env.databaseUser, env.d
     }
 });
 
-export const authenticate = () => {
+export const authenticateDb = () => {
     sequelize.authenticate();
 }
 
