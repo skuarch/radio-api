@@ -16,12 +16,16 @@ syncDb();
 loadControllers(app);
 loadStaticContent(app);
 
-const httpServer = app.listen(Number(env.httpServerPort), () => {
-    console.log(`Running server on port: ${env.httpServerPort}`);    
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(cert, app);
+
+httpServer.listen(env.httpServerPort, () => {
+  console.log('HTTP Server running on port 80');
 });
 
-const httpsServer = app.listen(Number(cert, env.httpsServerPort), () => {
-    console.log(`Running server on port: ${env.httpsServerPort}`);    
+
+httpsServer.listen(env.httpsServerPort, () => {
+  console.log('HTTPS Server running on port 443');
 });
 
 shutdownHook(httpServer);
