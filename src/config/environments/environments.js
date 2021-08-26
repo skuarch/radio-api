@@ -1,20 +1,34 @@
 export const environments = {
     prod: {        
-        databaseHost: process.env.PGHOST,
+        databaseHost: process.env.PGHOST,        
         databaseUser: process.env.PGUSER,
         databasePassword: process.env.PGPASSWORD,
         databasePort: process.env.PGPORT,
         databaseName: process.env.PGDATABASE,
-        serverPort: 8000,
-        forceSyncDb: false
+        httpServerPort: 80,
+        httpsServerPort: 443,
+        forceSyncDb: false,
+        corsOrigins: [         
+            'https://escucharadio.com.mx',
+            'http://escucharadio.com.mx',
+            'http://bulmaradio.com'
+        ]
     },
     local: {
-        databaseHost: process.env.PGHOST,
+        databaseHost: process.env.PGHOST,        
         databaseUser: process.env.PGUSER,
         databasePassword: process.env.PGPASSWORD,
         databasePort: process.env.PGPORT,
         databaseName: process.env.PGDATABASE,
-        serverPort: 8000,
-        forceSyncDb: false
+        httpServerPort: 8000,
+        httpsServerPort: 4430,
+        forceSyncDb: false,
+        corsOrigins: [
+            'http://localhost:8000',
+            'http://localhost:3000',
+            'https://escucharadio.com.mx',
+            'http://escucharadio.com.mx',
+            'http://bulmaradio.com'
+        ]
     }
 }

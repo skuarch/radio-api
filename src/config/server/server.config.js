@@ -1,5 +1,6 @@
 import helmet from 'helmet';
 import cors from 'cors';
+import { env } from '../environments/index.js';
 
 export const configHelmet = (app) => {
     app.use(helmet());
@@ -7,13 +8,7 @@ export const configHelmet = (app) => {
 
 export const configCors = (app) => {
     const corsOptions = {
-        origin: [
-            'http://localhost:8000',
-            'http://localhost:3000',
-            'https://escucharadio.com.mx',
-            'http://escucharadio.com.mx',
-            'http://bulmaradio.com'
-        ],
+        origin: env.corsOrigins,
         optionsSuccessStatus: 200
     }
 

@@ -13,12 +13,16 @@ export const sequelize = new Sequelize(env.databaseName, env.databaseUser, env.d
 });
 
 export const authenticateDb = () => {
-    sequelize.authenticate();
+    sequelize.authenticate()
+        .catch(error => {
+            console.log('ERROR: ', error);
+            process.exit();
+        });
 }
 
 export const syncDb = async () => {
     await sequelize.sync({ force: env.forceSyncDb })
         .catch(error => {
-            console.log(error);
+            console.log('ERROR:',  error);
         });
 }
