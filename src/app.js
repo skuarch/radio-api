@@ -31,4 +31,4 @@ httpsServer.listen(env.httpsServerPort, () => {
 });
 
 shutdownHook(httpServer);
-// shutdownHook(httpsServer);
+shutdownHook(httpsServer);
