@@ -6,6 +6,8 @@ import { authenticateDb, syncDb } from './config/loaders/db.loader.js';
 import { shutdownHook } from './config/loaders/shutdown.loader.js';
 import { cert } from './config/loaders/certificate.loader.js';
 import { loadStaticContent } from './config/loaders/static.loader.js';
+import http from 'http';
+import https from 'https';
 
 const app = express();
 
