@@ -1,6 +1,6 @@
 import { sequelize } from "./db.loader.js";
 
-const shutdown = server => {
+export const shutdown = server => {
     sequelize.close()
         .then(() => console.log('DB connections are closed'))
         .catch(e => console.log(e));        
