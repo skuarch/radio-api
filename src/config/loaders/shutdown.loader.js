@@ -1,22 +1,15 @@
-import { sequelize } from "./db.loader.js";
+import { shutdownServerAndCloseDbConnections } from '../../services/poweroff.service.js';
 
-export const shutdown = server => {
-    sequelize.close()
-        .then(() => console.log('DB connections are closed'))
-        .catch(e => console.log(e));        
-    server.close(() => console.log('Server closed'));            
-    setTimeout(() => process.exit(), 5000);    
-}
 
-export const shutdownHook = (server) => {
+export const shutdownHook = () => {
     process.on('SIGTERM', () => {
         console.log('SIGTERM signal received: closing server\n');
-        shutdown(server);
+        shutdownServerAndCloseDbConnections();       
     });
     
     process.on('SIGINT', () => {
         console.log('SIGINT signal received: closing server\n')
-        shutdown(server);
+        shutdownServerAndCloseDbConnections(); 
     });    
     
     process.on('exit', () => {

@@ -1,5 +1,5 @@
 import DataTypes from 'sequelize';
-import { sequelize } from '../config/loaders/db.loader.js';
+import { sequelize } from '../services/sequelize.service.js';
 
 const tableOptions = {
     freezeTableName: true

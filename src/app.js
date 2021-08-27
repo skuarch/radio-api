@@ -30,5 +30,4 @@ httpsServer.listen(env.httpsServerPort, () => {
   console.log(`HTTPS Server running on port ${env.httpsServerPort}`);
 });
 
-shutdownHook(httpServer);
-shutdownHook(httpsServer);
+shutdownHook();
