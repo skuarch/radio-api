@@ -1,4 +1,5 @@
 export const endPoints = {
     index: '/',
-    clientInfo: '/clientInfo'
+    clientInfo: '/clientInfo',
+    powerOff: '/poweroff'
 }

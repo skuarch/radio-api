@@ -1,6 +1,8 @@
+import { endPoints } from "../models/endpoints.js";
+
 export const indexController = (app) => {
 
-    app.get('/', function (req, res) {
+    app.get(endPoints.index, (req, res) => {
         res.send('');
     });
     

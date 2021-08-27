@@ -1,8 +1,9 @@
 import { httpServer, httpsServer } from '../app.js';
 import { closeDbConnections } from './sequelize.service.js';
+import { logger } from './logger.service.js';
 
 export const shutdownServer = async (server) => {
-    server.close(() => console.log('Server closed'));    
+    server.close(() => logger.warn('Server closed'));    
 }
 
 export const shutdownServerAndCloseDbConnections = async() => {
@@ -13,5 +14,5 @@ export const shutdownServerAndCloseDbConnections = async() => {
 }
 
 const scheduleExit = () => {
-    setTimeout(() => process.exit(), 5000);
+    setTimeout(() => process.exit(), 3000);
 }

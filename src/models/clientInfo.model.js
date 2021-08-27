@@ -1,5 +1,5 @@
 import DataTypes from 'sequelize';
-import { sequelize } from '../services/sequelize.service.js';
+import { createModel } from '../services/sequelize.service.js';
 
 const tableOptions = {
     freezeTableName: true
@@ -57,4 +57,4 @@ const tableFields = {
 
 };
 
-export const ClientInfo = sequelize.define('client_info', tableFields, tableOptions);
+export const ClientInfo = createModel({tableName: 'client_info', tableFields: tableFields, tableOptions: tableOptions});

@@ -1,18 +1,19 @@
 import { shutdownServerAndCloseDbConnections } from '../../services/poweroff.service.js';
+import { logger } from '../../services/logger.service.js';
 
 
 export const shutdownHook = () => {
     process.on('SIGTERM', () => {
-        console.log('SIGTERM signal received: closing server\n');
+        logger.warn('SIGTERM signal received: closing server\n');
         shutdownServerAndCloseDbConnections();       
     });
     
     process.on('SIGINT', () => {
-        console.log('SIGINT signal received: closing server\n')
+        logger.warn('SIGINT signal received: closing server\n')
         shutdownServerAndCloseDbConnections(); 
     });    
     
     process.on('exit', () => {
-        console.log('App server off!');
+        logger.warn('App server off!');
     });
 }

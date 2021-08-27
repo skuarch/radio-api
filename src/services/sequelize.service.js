@@ -1,7 +1,8 @@
 import { Sequelize } from 'sequelize';
 import { env } from '../config/environments/index.js';
+import { logger } from './logger.service.js';
 
-export const sequelize = new Sequelize(env.databaseName, env.databaseUser, env.databasePassword, {
+const sequelize = new Sequelize(env.databaseName, env.databaseUser, env.databasePassword, {
     dialect: 'postgres',
     host: env.databaseHost,
     pool: {
@@ -14,14 +15,14 @@ export const sequelize = new Sequelize(env.databaseName, env.databaseUser, env.d
 
 export const closeDbConnections = () => {
     sequelize.close()
-        .then(() => console.log('DB connections are closed'))
-        .catch(e => console.log(e));
+        .then(() => logger.warn('DB connections are closed'))
+        .catch(e => logger.error(e));
 }
 
 export const authenticateDb = () => {
     sequelize.authenticate()
         .catch(error => {
-            console.log('ERROR: ', error);
+            logger.error(error);
             process.exit();
         });
 }
@@ -29,6 +30,10 @@ export const authenticateDb = () => {
 export const syncDb = async () => {
     await sequelize.sync({ force: env.forceSyncDb })
         .catch(error => {
-            console.log('ERROR:',  error);
+            logger.error(error);
         });
+}
+
+export const createModel = ({ tableName, tableFields, tableOptions }) => {
+   return sequelize.define(tableName, tableFields, tableOptions);
 }

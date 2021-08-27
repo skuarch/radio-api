@@ -1,9 +1,9 @@
-import { sequelize } from '../../services/sequelize.service.js';
+import { authenticateDb, syncDb } from '../../services/sequelize.service.js';
 
-export const authenticateDb = () => {
-    sequelize.authenticate();
+export const authenticateDatabase = () => {
+    authenticateDb();
 }
 
-export const syncDb = async () => {
-    await sequelize.sync();
+export const syncDatabase = async () => {
+    await syncDb();
 }

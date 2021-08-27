@@ -1,5 +1,6 @@
 export const environments = {
-    prod: {        
+    prod: {  
+        name: 'prod',
         databaseHost: process.env.PGHOST,        
         databaseUser: process.env.PGUSER,
         databasePassword: process.env.PGPASSWORD,
@@ -11,10 +12,12 @@ export const environments = {
         corsOrigins: [         
             'https://escucharadio.com.mx',
             'http://escucharadio.com.mx',
+            'https://bulmaradio.com',
             'http://bulmaradio.com'
         ]
     },
     local: {
+        name: 'local',
         databaseHost: process.env.PGHOST,        
         databaseUser: process.env.PGUSER,
         databasePassword: process.env.PGPASSWORD,
@@ -28,6 +31,7 @@ export const environments = {
             'http://localhost:3000',
             'https://escucharadio.com.mx',
             'http://escucharadio.com.mx',
+            'https://bulmaradio.com',
             'http://bulmaradio.com'
         ]
     }
