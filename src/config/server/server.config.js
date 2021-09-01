@@ -7,9 +7,15 @@ export const configHelmet = (app) => {
 }
 
 export const configCors = (app) => {
+    const whitelist = env.corsOrigins;
     const corsOptions = {
-        origin: env.corsOrigins,
-        optionsSuccessStatus: 200
+        origin: function (origin, callback) {
+            if (whitelist.indexOf(origin) !== -1) {
+                callback(null, true)
+            } else {
+                callback(new Error('Not allowed by CORS'))
+            }
+        }
     }
 
     app.use(cors(corsOptions));

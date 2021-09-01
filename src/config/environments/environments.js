@@ -13,7 +13,7 @@ export const environments = {
             'https://escucharadio.com.mx',
             'http://escucharadio.com.mx',
             'https://bulmaradio.com',
-            'http://bulmaradio.com'
+            'http://bulmaradio.com/'
         ]
     },
     local: {
