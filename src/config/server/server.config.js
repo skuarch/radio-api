@@ -9,11 +9,11 @@ export const configHelmet = (app) => {
 export const configCors = (app) => {
     const whitelist = env.corsOrigins;
     const corsOptions = {
-        origin: function (origin, callback) {
-            if (whitelist.indexOf(origin) !== -1) {
+        origin: function(org, callback) {
+            if (whitelist.indexOf(org) !== -1) {
                 callback(null, true)
             } else {
-                callback(new Error(`Not allowed by CORS ${origin}`))
+                callback(new Error(`Not allowed by CORS ${org}`))
             }
         }
     }
