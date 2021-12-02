@@ -9,12 +9,16 @@ export const configHelmet = (app) => {
 export const configCors = (app) => {
     const whitelist = env.corsOrigins;
     const corsOptions = {
-        origin: function(org, callback) {
+        /*origin: function(org, callback) {
             if (whitelist.indexOf(org) !== -1) {
                 callback(null, true)
             } else {
                 callback(new Error(`Not allowed by CORS ${org}`))
             }
+        }*/
+
+        origin: function (origin, callback) {
+            console.log(origin);           
         }
     }
 
