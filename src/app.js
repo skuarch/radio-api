@@ -13,7 +13,7 @@ import { logger } from './services/logger.service.js';
 const app = express();
 
 configHelmet(app);
-configCors(app);
+// configCors(app);
 authenticateDatabase();
 syncDatabase();
 loadControllers(app);
