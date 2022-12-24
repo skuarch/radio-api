@@ -10,7 +10,7 @@ export const configCors = (app) => {
     const whitelist = env.corsOrigins;
     const corsOptions = {
         origin: function(org, callback) {
-            if (whitelist.indexOf(org) !== -1 || !origin) {
+            if (whitelist.indexOf(org) !== -1 || !org) {
                 callback(null, true)
             } else {
                 callback(new Error(`Not allowed by CORS ${org}`))
